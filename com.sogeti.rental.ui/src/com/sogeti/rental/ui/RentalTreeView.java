@@ -24,6 +24,7 @@ public class RentalTreeView extends ViewPart {
 		treeViewer.setContentProvider(new RentalProvider());
 		treeViewer.setLabelProvider(new RentalProvider());
 		treeViewer.setInput(agencies);
+		treeViewer.expandAll();
 	}
 
 	@Override
