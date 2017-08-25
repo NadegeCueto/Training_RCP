@@ -9,6 +9,12 @@
             name="RentalView"
             restorable="true">
       </view>
+      <view
+            class="com.sogeti.rental.ui.RentalTreeView"
+            id="com.sogeti.rental.ui.rentaltreeview"
+            name="RentalTreeView"
+            restorable="true">
+      </view>
    </extension>
 
 </plugin>
