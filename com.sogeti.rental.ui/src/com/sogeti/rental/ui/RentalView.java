@@ -1,18 +1,24 @@
 package com.sogeti.rental.ui;
 
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.sogeti.rental.core.RentalCoreActivator;
 
-public class RentalView extends ViewPart {
+public class RentalView extends ViewPart implements ISelectionListener {
 
 	private Label rentedObjectLabel;
 	Label rentedToLabel;
@@ -80,5 +86,31 @@ public class RentalView extends ViewPart {
 		rentedToNameLabel.setText(rental.getCustomer().getFirstName() + " " + rental.getCustomer().getLastName());
 		fromDateLabel.setText(rental.getStartDate().toString());
 		toDateLabel.setText(rental.getEndDate().toString());
+	}
+	
+	public void init (IViewSite site) throws PartInitException
+	{
+		super.init(site);
+		site.getPage().addSelectionListener(this);
+	}
+	
+	public void dispose()
+	{
+		getSite().getPage().removeSelectionListener(this);
+		super.dispose();
+	}
+
+	@Override
+	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+		if (selection instanceof IStructuredSelection)
+		{
+			Object selected = ((IStructuredSelection)selection).getFirstElement();
+			
+			if (selected instanceof Rental)
+			{
+				setRental((Rental)selected);
+			}
+		}
+		
 	}
 }
