@@ -3,11 +3,13 @@ package com.sogeti.rental.ui;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
@@ -15,7 +17,7 @@ import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
 
-public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider {
+public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalConstants {
 	
 	@Override
 	public Object[] getElements(Object inputElement) {
@@ -102,4 +104,18 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return null;
 	}
 
+	@Override
+	public Image getImage(Object element) {
+		ImageRegistry reg = RentalUiActivator.getDefault().getImageRegistry();
+		
+		if (element instanceof Customer)
+			return reg.get(IMG_CUSTOMER);
+		if (element instanceof Rental)
+			return reg.get(IMG_RENTAL);
+		if (element instanceof RentalObject)
+			return reg.get(IMG_OBJECT);
+		if (element instanceof RentalAgency)
+			return reg.get(IMG_AGENCY);
+		return null;
+	}
 }
