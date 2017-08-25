@@ -4,17 +4,32 @@
    <extension
          point="org.eclipse.ui.views">
       <view
+            category="com.sogeti.rental.ui.rentalcategory"
             class="com.sogeti.rental.ui.RentalView"
             id="com.sogeti.rental.ui.rentalview"
             name="RentalView"
             restorable="true">
       </view>
       <view
+            category="com.sogeti.rental.ui.rentalcategory"
             class="com.sogeti.rental.ui.RentalTreeView"
             id="com.sogeti.rental.ui.rentaltreeview"
             name="RentalTreeView"
             restorable="true">
       </view>
+      <category
+            id="com.sogeti.rental.ui.rentalcategory"
+            name="Rental">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.sogeti.rental.ui.RentalPerspective"
+            icon="icons/Agency.png"
+            id="com.sogeti.rental.ui.RentalPerspective"
+            name="Rental">
+      </perspective>
    </extension>
 
 </plugin>
