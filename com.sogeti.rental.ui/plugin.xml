@@ -22,6 +22,7 @@
             name="%category.name">
       </category>
       <view
+            category="com.sogeti.rental.ui.rentalcategory"
             class="com.sogeti.rental.ui.CustomerView"
             id="com.sogeti.rental.ui.customerview"
             name="CustomerView"
