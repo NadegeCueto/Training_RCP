@@ -9,6 +9,7 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.ui.actions.ActionFactory;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.action.ToolBarManager;
 
 public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	private IAction quitAction;
@@ -56,6 +57,9 @@ public class ApplicationActionBarAdvisor extends ActionBarAdvisor {
 	protected void fillCoolBar(ICoolBarManager coolBar) {
 		// TODO Auto-generated method stub
 		super.fillCoolBar(coolBar);
+		
+		ToolBarManager toolBarManager = new ToolBarManager();
+		coolBar.add(toolBarManager);
 	}
 
 }
