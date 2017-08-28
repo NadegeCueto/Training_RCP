@@ -4,6 +4,8 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
 public class RentalPerspective implements IPerspectiveFactory {
+	
+	public static final String ID = "com.sogeti.rental.ui.RentalPerspective";
 
 	/**
 	 * Creates the initial layout for a page.
