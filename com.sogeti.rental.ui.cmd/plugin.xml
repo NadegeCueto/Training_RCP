@@ -32,6 +32,12 @@
          <command
                commandId="org.eclipse.ui.edit.copy"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <reference
+                     definitionId="com.sogeti.rental.ui.cmd.customerSelected">
+               </reference>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>
