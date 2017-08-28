@@ -13,7 +13,8 @@ public class RentalPerspective implements IPerspectiveFactory {
 		String editorArea = layout.getEditorArea();
 		
 		layout.addView("com.sogeti.rental.ui.rentaltreeview", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
-		layout.addView("com.sogeti.rental.ui.rentalview", IPageLayout.LEFT, 0.95f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("com.sogeti.rental.ui.rentalview", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("com.sogeti.rental.ui.customerview", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
 	}
 
 	/**

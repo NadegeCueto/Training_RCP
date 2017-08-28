@@ -21,6 +21,12 @@
             id="com.sogeti.rental.ui.rentalcategory"
             name="%category.name">
       </category>
+      <view
+            class="com.sogeti.rental.ui.CustomerView"
+            id="com.sogeti.rental.ui.customerview"
+            name="CustomerView"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
