@@ -1,5 +1,9 @@
 package com.sogeti.rental.ui;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -31,6 +35,17 @@ public class RentalUiActivator extends AbstractUIPlugin implements RentalConstan
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		readViewExtensions();
+	}
+
+	private void readViewExtensions() {
+		IConfigurationElement[] elements = Platform.getExtensionRegistry().getConfigurationElementsFor("org.eclipse.ui.views");
+		for (int i = 0; i < elements.length; i++)
+		{
+			if ( elements[i].getName().equals("view"))
+			System.out.println("Plugin : " + elements[i].getNamespaceIdentifier() + "\tVue : " + elements[i].getAttribute("name"));
+		}
 	}
 
 	/*
