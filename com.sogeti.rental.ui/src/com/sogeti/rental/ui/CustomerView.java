@@ -46,6 +46,8 @@ public class CustomerView extends ViewPart implements ISelectionListener{
 	
 	@Override
 	public void selectionChanged(IWorkbenchPart part, ISelection selection) {
+		if (selection.isEmpty())
+			return;
 		if (selection instanceof IStructuredSelection)
 		{
 			Object selected = ((IStructuredSelection)selection).getFirstElement();
