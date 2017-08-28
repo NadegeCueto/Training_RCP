@@ -63,7 +63,6 @@ public class RentalTreeView extends ViewPart implements IPropertyChangeListener{
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
 		treeViewer.refresh();
-		treeViewer.expandAll();
 	}
 
 	
