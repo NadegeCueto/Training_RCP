@@ -3,7 +3,10 @@ package com.sogeti.rental.ui;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -90,11 +93,11 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	public Color getForeground(Object element) {
 			
 		if (element instanceof Customer)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_MAGENTA);
+			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_CUSTOMER_COLOR_FIELD));
 		if (element instanceof Rental)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_CYAN);
+			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_RENTAL_COLOR_FIELD));
 		if (element instanceof RentalObject)
-			return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
+			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_OBJECTS_COLOR_FIELD));
 		return null;
 	}
 
@@ -117,5 +120,18 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		if (element instanceof RentalAgency)
 			return reg.get(IMG_AGENCY);
 		return null;
+	}
+	
+	private Color getAColor(String rgbKey)
+	{
+		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+		Color col = colorRegistry.get(rgbKey);
+		if (col == null)
+		{
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			col = colorRegistry.get(rgbKey);
+		}
+		return col;
+		
 	}
 }
