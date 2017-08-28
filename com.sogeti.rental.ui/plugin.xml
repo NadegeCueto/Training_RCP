@@ -7,19 +7,19 @@
             category="com.sogeti.rental.ui.rentalcategory"
             class="com.sogeti.rental.ui.RentalView"
             id="com.sogeti.rental.ui.rentalview"
-            name="RentalView"
+            name="%view.name"
             restorable="true">
       </view>
       <view
             category="com.sogeti.rental.ui.rentalcategory"
             class="com.sogeti.rental.ui.RentalTreeView"
             id="com.sogeti.rental.ui.rentaltreeview"
-            name="RentalTreeView"
+            name="%view.name.0"
             restorable="true">
       </view>
       <category
             id="com.sogeti.rental.ui.rentalcategory"
-            name="Rental">
+            name="%category.name">
       </category>
    </extension>
    <extension
@@ -28,7 +28,7 @@
             class="com.sogeti.rental.ui.RentalPerspective"
             icon="icons/Agency.png"
             id="com.sogeti.rental.ui.RentalPerspective"
-            name="Rental">
+            name="%perspective.name">
       </perspective>
    </extension>
    <extension
@@ -42,14 +42,14 @@
       <page
             class="com.sogeti.rental.ui.RentalPreferencesPage"
             id="com.sogeti.rental.ui.rentalpreferencespage"
-            name="RentalPreferencesPage">
+            name="%page.name">
       </page>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
             id="com.sogeti.rental.ui.helloworld"
-            name="HelloWorld">
+            name="%command.name">
       </command>
    </extension>
    <extension
@@ -66,7 +66,7 @@
             locationURI="menu:org.eclipse.ui.main.menu?after=additions">
          <command
                commandId="com.sogeti.rental.ui.helloworld"
-               label="Hello World"
+               label="%command.label"
                style="push">
          </command>
       </menuContribution>
@@ -75,7 +75,7 @@
             locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
          <command
                commandId="com.sogeti.rental.ui.helloworld"
-               label="Hello World"
+               label="%command.label.0"
                style="push">
          </command>
       </menuContribution>
@@ -84,7 +84,7 @@
             locationURI="popup:com.sogeti.rental.ui.rentaltreeview?after=additions">
          <command
                commandId="com.sogeti.rental.ui.helloworld"
-               label="Hello World"
+               label="%command.label.1"
                style="push">
          </command>
       </menuContribution>
@@ -94,7 +94,7 @@
          <command
                commandId="com.sogeti.rental.ui.helloworld"
                icon="icons/Agency.png"
-               label="Hello World"
+               label="%command.label.2"
                style="push">
          </command>
       </menuContribution>
@@ -104,7 +104,7 @@
          <command
                commandId="com.sogeti.rental.ui.helloworld"
                icon="icons/Agency.png"
-               label="Hello World"
+               label="%command.label.3"
                style="push">
          </command>
       </menuContribution>
@@ -117,7 +117,7 @@
             locationURI="menu:com.sogeti.rental.ui.rentaltreeview?after=additions">
          <command
                commandId="com.sogeti.rental.ui.helloworld"
-               label="Hello World"
+               label="%command.label.4"
                style="push">
          </command>
       </menuContribution>
