@@ -48,6 +48,7 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            category="com.sogeti.rental.ui.palettepreferencespage"
             class="com.sogeti.rental.ui.preferences.RentalPreferencesPage"
             id="com.sogeti.rental.ui.rentalpreferencespage"
             name="%page.name">

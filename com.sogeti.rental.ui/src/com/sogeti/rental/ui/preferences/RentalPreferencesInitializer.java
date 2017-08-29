@@ -24,6 +24,7 @@ public class RentalPreferencesInitializer extends AbstractPreferenceInitializer 
 		store.setDefault(RentalPreferencesPage.PREF_CUSTOMER_COLOR_FIELD, StringConverter.asString(Display.getCurrent().getSystemColor(DEFAULT_COLOR_CUSTOMER).getRGB()));
 		store.setDefault(RentalPreferencesPage.PREF_RENTAL_COLOR_FIELD, "0,20,30");
 		store.setDefault(RentalPreferencesPage.PREF_OBJECTS_COLOR_FIELD, StringConverter.asString(Display.getCurrent().getSystemColor(DEFAULT_COLOR_OBJECTS).getRGB()));
+		store.setDefault(PalettePreferencesPage.PREF_PALETTE, "com.sogeti.rental.ui.palettedefault");
 	}
 
 }
