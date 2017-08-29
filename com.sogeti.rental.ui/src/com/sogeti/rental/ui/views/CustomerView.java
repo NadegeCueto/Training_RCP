@@ -1,4 +1,4 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.views;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;

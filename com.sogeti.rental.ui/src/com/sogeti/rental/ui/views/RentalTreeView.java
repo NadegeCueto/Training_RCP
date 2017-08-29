@@ -1,4 +1,4 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.views;
 
 import java.util.ArrayList;
 
@@ -21,6 +21,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.sogeti.rental.core.RentalCoreActivator;
+import com.sogeti.rental.ui.RentalUiActivator;
 
 public class RentalTreeView extends ViewPart implements IPropertyChangeListener{
 

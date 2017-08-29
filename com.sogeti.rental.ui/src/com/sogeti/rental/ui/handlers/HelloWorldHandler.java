@@ -1,4 +1,4 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.handlers;
 import java.util.Map;
 
 import org.eclipse.core.commands.AbstractHandler;

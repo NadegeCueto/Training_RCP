@@ -1,10 +1,12 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.preferences;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
+
+import com.sogeti.rental.ui.RentalUiActivator;
 
 public class RentalPreferencesInitializer extends AbstractPreferenceInitializer {
 	

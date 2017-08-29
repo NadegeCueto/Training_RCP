@@ -12,4 +12,5 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.equinox.registry
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: com.sogeti.rental.ui
+Export-Package: com.sogeti.rental.ui,
+ com.sogeti.rental.ui.views

@@ -6,14 +6,14 @@
          point="org.eclipse.ui.views">
       <view
             category="com.sogeti.rental.ui.rentalcategory"
-            class="com.sogeti.rental.ui.RentalView"
+            class="com.sogeti.rental.ui.views.RentalView"
             id="com.sogeti.rental.ui.rentalview"
             name="%view.name"
             restorable="true">
       </view>
       <view
             category="com.sogeti.rental.ui.rentalcategory"
-            class="com.sogeti.rental.ui.RentalTreeView"
+            class="com.sogeti.rental.ui.views.RentalTreeView"
             id="com.sogeti.rental.ui.rentaltreeview"
             name="%view.name.0"
             restorable="true">
@@ -24,7 +24,7 @@
       </category>
       <view
             category="com.sogeti.rental.ui.rentalcategory"
-            class="com.sogeti.rental.ui.CustomerView"
+            class="com.sogeti.rental.ui.views.CustomerView"
             id="com.sogeti.rental.ui.customerview"
             name="CustomerView"
             restorable="true">
@@ -33,7 +33,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="com.sogeti.rental.ui.RentalPerspective"
+            class="com.sogeti.rental.ui.views.RentalPerspective"
             icon="icons/Agency.png"
             id="com.sogeti.rental.ui.RentalPerspective"
             name="%perspective.name">
@@ -42,18 +42,18 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="com.sogeti.rental.ui.RentalPreferencesInitializer">
+            class="com.sogeti.rental.ui.preferences.RentalPreferencesInitializer">
       </initializer>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            class="com.sogeti.rental.ui.RentalPreferencesPage"
+            class="com.sogeti.rental.ui.preferences.RentalPreferencesPage"
             id="com.sogeti.rental.ui.rentalpreferencespage"
             name="%page.name">
       </page>
       <page
-            class="com.sogeti.rental.ui.PalettePreferencesPage"
+            class="com.sogeti.rental.ui.preferences.PalettePreferencesPage"
             id="com.sogeti.rental.ui.palettepreferencespage"
             name="PalettePreferencesPage">
       </page>
@@ -68,7 +68,7 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="com.sogeti.rental.ui.HelloWorldHandler"
+            class="com.sogeti.rental.ui.handlers.HelloWorldHandler"
             commandId="com.sogeti.rental.ui.helloworld">
       </handler>
    </extension>

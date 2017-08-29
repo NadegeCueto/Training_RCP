@@ -1,4 +1,4 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.views;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +19,10 @@ import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
+import com.sogeti.rental.ui.RentalConstants;
+import com.sogeti.rental.ui.RentalUiActivator;
 import com.sogeti.rental.ui.palette.Palette;
+import com.sogeti.rental.ui.preferences.PalettePreferencesPage;
 
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalConstants {
 

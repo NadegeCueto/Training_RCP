@@ -11,8 +11,8 @@ import org.eclipse.swt.widgets.Display;
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalObject;
-import com.sogeti.rental.ui.RentalPreferencesPage;
 import com.sogeti.rental.ui.RentalUiActivator;
+import com.sogeti.rental.ui.preferences.RentalPreferencesPage;
 
 public class DefaultPalette implements IColorProvider {
 

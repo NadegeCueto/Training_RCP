@@ -1,4 +1,4 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.preferences;
 
 import org.eclipse.jface.preference.ColorFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
@@ -8,6 +8,8 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
+
+import com.sogeti.rental.ui.RentalUiActivator;
 
 public class RentalPreferencesPage extends FieldEditorPreferencePage implements IWorkbenchPreferencePage {
 	

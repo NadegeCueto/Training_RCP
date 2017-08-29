@@ -1,10 +1,11 @@
-package com.sogeti.rental.ui;
+package com.sogeti.rental.ui.preferences;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import com.sogeti.rental.ui.RentalUiActivator;
 import com.sogeti.rental.ui.palette.Palette;
 
 import java.util.Map;
