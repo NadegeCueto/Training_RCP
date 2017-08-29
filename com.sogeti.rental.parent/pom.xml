@@ -84,6 +84,7 @@
 		<module>../com.sogeti.rental.ui</module>
 		<module>../com.sogeti.rental.ui.cmd</module>
 		<module>../com.sogeti.rental.ui.es</module>
+		<module>../com.sogeti.rental.repository</module>
 	</modules>
 
 </project>
