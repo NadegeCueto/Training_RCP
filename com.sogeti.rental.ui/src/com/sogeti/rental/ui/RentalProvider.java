@@ -144,6 +144,19 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	private Color getAColor(String rgbKey)
+	{
+		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+		Color col = colorRegistry.get(rgbKey);
+		if (col == null)
+		{
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			col = colorRegistry.get(rgbKey);
+		}
+		return col;
+		
+	}
 
 	@Override
 	public Image getImage(Object element) {
@@ -160,16 +173,5 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return null;
 	}
 	
-	private Color getAColor(String rgbKey)
-	{
-		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-		Color col = colorRegistry.get(rgbKey);
-		if (col == null)
-		{
-			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
-			col = colorRegistry.get(rgbKey);
-		}
-		return col;
-		
-	}
+	
 }

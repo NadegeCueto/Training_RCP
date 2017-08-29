@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+   <extension-point id="palette" name="palette" schema="schema/palette.exsd"/>
    <extension
          point="org.eclipse.ui.views">
       <view
@@ -132,6 +133,14 @@
             allPopups="false"
             locationURI="menu:com.sogeti.rental.ui.rentaltreeview?after=additions">
       </menuContribution>
+   </extension>
+   <extension
+         point="com.sogeti.rental.ui.palette">
+      <palette
+            id="com.sogeti.rental.ui.palettedefault"
+            name="DefaultPalette"
+            paletteClass="com.sogeti.rental.ui.palette.DefaultPalette">
+      </palette>
    </extension>
 
 </plugin>
