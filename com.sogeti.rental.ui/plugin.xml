@@ -141,6 +141,11 @@
             name="DefaultPalette"
             paletteClass="com.sogeti.rental.ui.palette.DefaultPalette">
       </palette>
+      <palette
+            id="com.sogeti.rental.ui.paletteRed"
+            name="RedPalette"
+            paletteClass="com.sogeti.rental.ui.palette.RedPalette">
+      </palette>
    </extension>
 
 </plugin>
