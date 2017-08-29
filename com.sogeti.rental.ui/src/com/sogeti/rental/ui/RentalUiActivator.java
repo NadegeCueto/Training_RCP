@@ -109,4 +109,8 @@ public class RentalUiActivator extends AbstractUIPlugin implements RentalConstan
 		reg.put(IMG_OBJECT,  ImageDescriptor.createFromURL(b.getEntry(IMG_OBJECT)));
 		reg.put(IMG_AGENCY,  ImageDescriptor.createFromURL(b.getEntry(IMG_AGENCY)));
 	}
+
+	public Map<String, Palette> getPaletteManager() {
+		return this.paletteManager;
+	}
 }

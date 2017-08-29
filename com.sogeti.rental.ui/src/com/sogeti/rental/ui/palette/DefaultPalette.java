@@ -4,7 +4,9 @@ import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.StringConverter;
 import org.eclipse.jface.viewers.IColorProvider;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
@@ -32,8 +34,7 @@ public class DefaultPalette implements IColorProvider {
 
 	@Override
 	public Color getBackground(Object element) {
-		// TODO Auto-generated method stub
-		return null;
+		return Display.getCurrent().getSystemColor(SWT.COLOR_WHITE);
 	}
 	
 	private Color getAColor(String rgbKey)

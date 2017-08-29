@@ -25,6 +25,7 @@ import com.sogeti.rental.core.RentalCoreActivator;
 public class RentalTreeView extends ViewPart implements IPropertyChangeListener{
 
 	protected TreeViewer treeViewer;
+	protected RentalProvider provider;
 	
 	public RentalTreeView() {
 		// TODO Auto-generated constructor stub
@@ -36,8 +37,9 @@ public class RentalTreeView extends ViewPart implements IPropertyChangeListener{
 		ArrayList<RentalAgency> agencies = new ArrayList();
 		agencies.add(RentalCoreActivator.getAgency());
 		treeViewer = new TreeViewer(parent);
-		treeViewer.setContentProvider(new RentalProvider());
-		treeViewer.setLabelProvider(new RentalProvider());
+		provider = new RentalProvider();
+		treeViewer.setContentProvider(provider);
+		treeViewer.setLabelProvider(provider);
 		treeViewer.setInput(agencies);
 		treeViewer.expandAll();
 		
@@ -69,6 +71,7 @@ public class RentalTreeView extends ViewPart implements IPropertyChangeListener{
 
 	@Override
 	public void propertyChange(PropertyChangeEvent event) {
+		provider.initPalette();
 		treeViewer.refresh();
 	}
 

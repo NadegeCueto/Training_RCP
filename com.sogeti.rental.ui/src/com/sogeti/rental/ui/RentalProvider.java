@@ -19,54 +19,63 @@ import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.RentalObject;
+import com.sogeti.rental.ui.palette.Palette;
 
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, IColorProvider, RentalConstants {
-	
+
+	public RentalProvider() {
+		super();
+		initPalette();
+	}
+
+	private Palette palette;
+
 	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof Collection)
-			return ((Collection)inputElement).toArray();
+			return ((Collection) inputElement).toArray();
 		return null;
 	}
 
 	@Override
 	public Object[] getChildren(Object parentElement) {
-		
+
 		if (parentElement instanceof RentalAgency)
-			return (new Node[]{new Node("Customers", (RentalAgency)parentElement), new Node("Locations", (RentalAgency)parentElement), new Node("Objets à louer", (RentalAgency)parentElement)});
+			return (new Node[] { new Node("Customers", (RentalAgency) parentElement),
+					new Node("Locations", (RentalAgency) parentElement),
+					new Node("Objets à louer", (RentalAgency) parentElement) });
 		if (parentElement instanceof Node)
-			return ((Node)parentElement).getChildren();
+			return ((Node) parentElement).getChildren();
 		return null;
 	}
 
 	@Override
 	public Object getParent(Object element) {
-			return null;
+		return null;
 	}
 
 	@Override
 	public boolean hasChildren(Object element) {
 		return (element instanceof RentalAgency || element instanceof Node);
 	}
-	
+
 	@Override
 	public String getText(Object element) {
 		if (element instanceof RentalAgency)
-			return ((RentalAgency)element).getName();
+			return ((RentalAgency) element).getName();
 		if (element instanceof Customer)
-			return ((Customer)element).getFirstName() + " " + ((Customer)element).getLastName();
+			return ((Customer) element).getFirstName() + " " + ((Customer) element).getLastName();
 		if (element instanceof Node)
-			return ((Node)element).toString();
+			return ((Node) element).toString();
 		if (element instanceof RentalObject)
-			return ((RentalObject)element).getName();
+			return ((RentalObject) element).getName();
 		return super.getText(element);
 	}
-	
-	private class Node
-	{
+
+	private class Node {
 		String label;
 		RentalAgency agency;
-		
+
 		public String toString() {
 			return label;
 		}
@@ -111,8 +120,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			this.agency = agency;
 		}
 
-		Object[] getChildren()
-		{
+		Object[] getChildren() {
 			if (label.equals("Customers"))
 				return agency.getCustomers().toArray();
 			if (label.equals("Locations"))
@@ -129,39 +137,24 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 
 	@Override
 	public Color getForeground(Object element) {
-			
-		if (element instanceof Customer)
-			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_CUSTOMER_COLOR_FIELD));
-		if (element instanceof Rental)
-			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_RENTAL_COLOR_FIELD));
-		if (element instanceof RentalObject)
-			return getAColor(RentalUiActivator.getDefault().getPreferenceStore().getString(RentalPreferencesPage.PREF_OBJECTS_COLOR_FIELD));
-		return null;
+
+		return palette.getProvider().getForeground(element);
 	}
 
 	@Override
 	public Color getBackground(Object element) {
-		// TODO Auto-generated method stub
-		return null;
+		return palette.getProvider().getBackground(element);
 	}
-	
-	private Color getAColor(String rgbKey)
-	{
-		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-		Color col = colorRegistry.get(rgbKey);
-		if (col == null)
-		{
-			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
-			col = colorRegistry.get(rgbKey);
-		}
-		return col;
-		
+
+	public void initPalette() {
+		palette = RentalUiActivator.getDefault().getPaletteManager().get(
+				RentalUiActivator.getDefault().getPreferenceStore().getString(PalettePreferencesPage.PREF_PALETTE));
 	}
 
 	@Override
 	public Image getImage(Object element) {
 		ImageRegistry reg = RentalUiActivator.getDefault().getImageRegistry();
-		
+
 		if (element instanceof Customer)
 			return reg.get(IMG_CUSTOMER);
 		if (element instanceof Rental)
@@ -172,6 +165,5 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return reg.get(IMG_AGENCY);
 		return null;
 	}
-	
-	
+
 }

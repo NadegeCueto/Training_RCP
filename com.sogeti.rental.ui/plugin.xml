@@ -52,6 +52,11 @@
             id="com.sogeti.rental.ui.rentalpreferencespage"
             name="%page.name">
       </page>
+      <page
+            class="com.sogeti.rental.ui.PalettePreferencesPage"
+            id="com.sogeti.rental.ui.palettepreferencespage"
+            name="PalettePreferencesPage">
+      </page>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
