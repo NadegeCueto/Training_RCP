@@ -1,15 +1,22 @@
 package com.sogeti.rental.ui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
+
+import com.sogeti.rental.ui.palette.Palette;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -21,6 +28,9 @@ public class RentalUiActivator extends AbstractUIPlugin implements RentalConstan
 
 	// The shared instance
 	private static RentalUiActivator plugin;
+	
+	// define the palette manager
+	private static Map<String, Palette> paletteManager = new HashMap<>();
 	
 	/**
 	 * The constructor
@@ -37,6 +47,30 @@ public class RentalUiActivator extends AbstractUIPlugin implements RentalConstan
 		plugin = this;
 		
 		readViewExtensions();
+		readPalette();
+	}
+
+	private void readPalette() {
+		IConfigurationElement[] elements = Platform.getExtensionRegistry().getConfigurationElementsFor("com.sogeti.rental.ui.palette");
+		for (int i = 0; i < elements.length; i++)
+		{
+			
+			if ( elements[i].getName().equals("palette"))
+			{
+				Palette p = new Palette();
+				p.setId(elements[i].getAttribute("id"));
+				p.setName(elements[i].getAttribute("name"));
+				try {
+					p.setProvider((IColorProvider)elements[i].createExecutableExtension("paletteClass"));
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				paletteManager.put(p.getId(), p) ;
+				System.out.println("Ajout de palette: " + p.getId());
+			}
+		}
+		
 	}
 
 	private void readViewExtensions() {
